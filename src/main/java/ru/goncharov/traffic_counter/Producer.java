@@ -30,7 +30,8 @@ public class Producer implements Closeable {
 
     // Send message to kafka topic
     public void sendAlertTopic(String message) {
-        ProducerRecord<String, String> record = new ProducerRecord<>(ALERT_TOPIC, message);
+        ProducerRecord<String, String> record =
+                new ProducerRecord<>(ALERT_TOPIC, "Kafka_" + ALERT_TOPIC + ": " + message);
         producer.send(record);
     }
 
